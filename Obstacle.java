@@ -14,6 +14,14 @@ public class Obstacle extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        protected abstract void fall();
+        
+        // Returns true if the child object is on the ground, 
+        // false otherwise
+        protected boolean isOnGround()
+        {
+            Actor ground = getOneObjectAtOffset(0, getImage().getHeight() /
+        }
+        
     }
 }
