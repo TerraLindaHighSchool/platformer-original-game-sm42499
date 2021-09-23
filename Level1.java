@@ -76,6 +76,14 @@ public class Level1 extends World
         bomb2.setLocation(965,530);
         floor.setLocation(850,700);
         bomb2.setLocation(1035,675);
-        player.setLocation(45,645);
+        player.setLocation(45,64);
+    }
+    private void spawn()
+    {
+        if(Math.random() < 0.0025)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+
     }
 }
