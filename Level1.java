@@ -26,7 +26,7 @@ public class Level1 extends World
     private void prepare()
     {
         setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class, Door.class, HUD.class);
-        Player player = new Player();
+        Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player,35,645);
         Door door = new Door();
         addObject(door,605,40);
