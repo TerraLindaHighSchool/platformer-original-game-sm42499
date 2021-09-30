@@ -25,7 +25,7 @@ public class Player extends Actor
     private final Class NEXT_LEVEL;
     private final GreenfootSound MUSIC;
     
-    public Player(int speed, float junpForce, float gravity, int maxHealth,
+    public Player(int speed, float jumpForce, float gravity, int maxHealth,
                   int maxPowerUp, Class nextLevel, GreenfootSound music)
     {
             WALK_ANIMATION = new GreenfootImage[]
@@ -36,7 +36,12 @@ public class Player extends Actor
                               new GreenfootImage("walk4.png"),
                               new GreenfootImage("walk5.png")
                             };
-        
+            this.speed = speed;
+            STANDING_IMAGE = new GreenfootImage("standing.png");
+            JUMP_FORCE = jumpForce;
+            GRAVITY = gravity;
+            NEXT_LEVEL = nextLevel;
+            MUSIC = music;
     }
     
     /**
@@ -45,13 +50,41 @@ public class Player extends Actor
      */
     public void act()
     {
-        animator();
-        move(speed);
+        walk();
+        jump();
+        fall();
+        onCollision();
+        gameOver();
     }
     
     public void addedToWorld(World world){}
     
-    private void walk() {}
+    private void walk() 
+    {
+        if(isWalking)
+        {
+            animator();
+        }
+        else
+        {
+            setImage(STANDING_IMAGE);
+            walkIndex = 0;
+        }
+        
+        if(Greenfoot.isKeyDown("right"))
+        {
+        if(isFacingLeft)
+        {
+            mirrorImages();
+        }    
+        isWalking = true;
+        isFacingLeft = false;
+        move(speed);
+    }
+    
+    If(Greenfoot.isKeyDown("left"))
+    
+
     private void jump() {}
     private void fall() {}
     private void animator() 
@@ -70,7 +103,7 @@ public class Player extends Actor
         }
     }
     
-    private void onCollison() {}
+    private void onCollision() {}
     private void mirrorImages() {}
     private void gameOver() {}
     private boolean isOnGround()

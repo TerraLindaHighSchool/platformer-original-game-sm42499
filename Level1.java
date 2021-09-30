@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
+    private final float GRAVITY = 0.0667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -19,64 +21,33 @@ public class Level1 extends World
         prepare();
     }
     
+    public void act()
+    {
+        spawn();
+    }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
     {
-        setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class, Door.class, HUD.class);
-        Player player = new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
-        addObject(player,35,645);
-        Door door = new Door();
-        addObject(door,605,40);
-        door.setLocation(705,35);
-        player.setLocation(40,560);
-        BrickWall brickWall = new BrickWall();
-        addObject(brickWall,370,435);
-        door.setLocation(1180,30);
-        door.setLocation(1165,30);
-        player.setLocation(20,600);
-        player.setLocation(35,660);
-        door.setLocation(1175,55);
-        brickWall.setLocation(460,515);
-        player.setLocation(25,715);
-        SmBrickWall smBrickWall = new SmBrickWall();
-        addObject(smBrickWall,55,450);
-        TrapDoor trapDoor = new TrapDoor();
-        addObject(trapDoor,215,275);
-        TrapDoor trapDoor2 = new TrapDoor();
-        addObject(trapDoor2,530,160);
-        Bomb bomb = new Bomb();
-        addObject(bomb,570,110);
-        BrickWall brickWall2 = new BrickWall();
-        addObject(brickWall2,960,100);
-        SmBrickWall smBrickWall2 = new SmBrickWall();
-        addObject(smBrickWall2,982,208);
-        Powerup powerup = new Powerup();
-        addObject(powerup,945,170);
-        Powerup powerup2 = new Powerup();
-        addObject(powerup2,1010,170);
-        powerup.setLocation(955,165);
-        powerup2.setLocation(1000,165);
-        BrickWall brickWall3 = new BrickWall();
-        addObject(brickWall3,835,350);
-        brickWall3.setLocation(970,300);
-        TrapDoor trapDoor3 = new TrapDoor();
-        addObject(trapDoor3,865,595);
-        SmBrickWall smBrickWall3 = new SmBrickWall();
-        addObject(smBrickWall3,1100,590);
-        trapDoor3.setLocation(920,520);
-        smBrickWall3.setLocation(1120,545);
-        Bomb bomb2 = new Bomb();
-        addObject(bomb2,1005,670);
-        Floor floor = new Floor();
-        addObject(floor,630,605);
-        player.setLocation(30,580);
-        bomb2.setLocation(965,530);
-        floor.setLocation(850,700);
-        bomb2.setLocation(1035,675);
-        player.setLocation(45,64);
+        addObject(new Player(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC), 43, 760);
+        addObject(new Floor(),600,800);
+        addObject(new Door(),1165,50);
+        addObject(new BrickWall(),1030,685);
+        addObject(new BrickWall(),550,370);
+        addObject(new BrickWall(),1040,100);
+        addObject(new SmBrickWall(),470,575);
+        addObject(new SmBrickWall(),100,505);
+        addObject(new SmBrickWall(),680,235);
+        addObject(new SmBrickWall(),360,510);
+        addObject(new SmBrickWall(),715,630);
+        addObject(new Gem(),900,760);
+        addObject(new Gem(),800,760);
+        addObject(new Gem(),130,460);
+        addObject(new TrapDoor(),305,605);
+        addObject(new Bomb(GRAVITY),65,460);
     }
     private void spawn()
     {
@@ -86,4 +57,6 @@ public class Level1 extends World
         }
 
     }
+    
+    
 }
