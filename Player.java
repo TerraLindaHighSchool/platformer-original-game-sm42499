@@ -82,12 +82,26 @@ public class Player extends Actor
         move(speed);
     }
     
-    If(Greenfoot.isKeyDown("left"))
+    If(Greenfoot.isKeyDown("left"));
+    {
+        if(!isFacingLeft)
+        {
+            mirrorImages();
+        }
+        isWalking = true;
+        isFacingLeft = true;
+        move(-speed);
+    }
     
-
-    private void jump() {}
-    private void fall() {}
-    private void animator() 
+    if(!(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("left")))
+    {
+        isWalking = false;
+    }
+    
+}
+private void jump() {}
+private void fall() {}
+private void animator() 
     {
         if(frame % (15 - 2 * speed) == 0)
         {
@@ -100,14 +114,23 @@ public class Player extends Actor
             {
                 walkIndex = 0;
             }
+            frame++;
         }
     }
-    
+
     private void onCollision() {}
-    private void mirrorImages() {}
+    private void mirrorImages() 
+    {
+        for(int i = 0; i < WALK_ANIMATON.length; i++)
+        {
+            WALK_ANIMATION[I].mirrorHorizontally();
+        }
+    
+    }
     private void gameOver() {}
     private boolean isOnGround()
     {
         return false;
     }
+}
 }
