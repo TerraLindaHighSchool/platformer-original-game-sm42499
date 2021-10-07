@@ -16,4 +16,6 @@ public class TrapDoor extends Obstacle
     {
         // Add your action code here.
     }
+    
+    protected void fall(){}
 }
