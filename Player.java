@@ -163,8 +163,9 @@ public class Player extends Actor
 
     private void onCollision() 
     {
-        if(isTouching(Door.class))
+        if(isTouching(Door.class) || Greenfoot.isKeyDown("space"))
         {
+            MUSIC.stop();
             World world = null;
             try
             {
