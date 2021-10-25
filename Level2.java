@@ -39,16 +39,16 @@ public class Level2 extends World
     private void prepare()
     {
         addObject(new Player(SPEED, JUMP_FORCE, GRAVITY, MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC), 30,750);
-        addObject(new Floor(),600,800);
-        addObject(new Door(),1165,50);
-        addObject(new BrickWall(),1030,685);
-        addObject(new BrickWall(),550,370);
+        addObject(new Floor(),630,800);
+        addObject(new Door(),1167,50);
+        addObject(new BrickWall(),1036,685);
+        addObject(new BrickWall(),558,370);
         addObject(new BrickWall(),1040,100);
-        addObject(new SmBrickWall(),470,575);
-        addObject(new SmBrickWall(),100,505);
-        addObject(new SmBrickWall(),680,235);
-        addObject(new SmBrickWall(),360,510);
-        addObject(new SmBrickWall(),715,630);
+        addObject(new SmBrickWall(),472,575);
+        addObject(new SmBrickWall(),109,505);
+        addObject(new SmBrickWall(),682,235);
+        addObject(new SmBrickWall(),361,510);
+        addObject(new SmBrickWall(),710,630);
         addObject(new Gem(),900,760);
         addObject(new Gem(),800,760);
         addObject(new Gem(),130,460);
