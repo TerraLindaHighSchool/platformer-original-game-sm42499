@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Rock extends Obstacle
 {
     private final float GRAVITY;
-    
+    private float yVelocity;
     /**
      * Act - do whatever the Rock wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,8 +21,15 @@ public class Rock extends Obstacle
     
     public void act()
     {
-        // Add your action code here.
+        fall();
     }
     
-    protected void fall(){}
+    protected void fall()
+    {
+        if(!isOnGround())
+        {
+            yVelocity += GRAVITY;
+            setLocation(getX(), getY() + (int) yVelocity);
+        }
+    }
 }

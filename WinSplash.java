@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WinSplash extends World
 {
+    private final GreenfootSound MUSIC = new GreenfootSound("bensound-retrosoul.mp3");
     /**
      * Constructor for objects of class BrickWorld.
      * 

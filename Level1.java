@@ -58,9 +58,9 @@ public class Level1 extends World
 
     private void spawn()
     {
-        if(Math.random() < 0.0025)
         {
-            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        if(Math.random() < 0.0030)
+        addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), 30);
         }
 
     }
