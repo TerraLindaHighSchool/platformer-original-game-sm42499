@@ -27,11 +27,6 @@ public class Level2 extends World
         prepare();
     }
     
-    public void act()
-    {
-        spawn();
-    }
-    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -55,15 +50,4 @@ public class Level2 extends World
         addObject(new TrapDoor(),305,605);
         addObject(new Bomb(GRAVITY),65,460);
     }
-
-    private void spawn()
-    {
-        if(Math.random() < 0.0030)
-        {
-            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
-        }
-
-    }
-    
-    
 }
